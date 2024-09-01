@@ -1,22 +1,21 @@
-
-/* eslint-disable */
 <template>
   <div class="todo-item" :class="{ completed: todo.completed }">
-    <input type="checkbox" :checked="todo.completed" @change="toggleTodo(todo.id)">
+    <input
+      type="checkbox"
+      :checked="todo.completed"
+      @change="toggleTodo(todo.id)"
+    >
     <span>{{ todo.text }}</span>
   </div>
 </template>
 
 <script setup>
-import { inject } from 'vue'
 import { defineProps } from 'vue'
+
 defineProps({
-  todo: {
-    type: Object,
-    required: true
-  }
-});
-const toggleTodo = inject('toggleTodo')
+  todo: Object,
+  toggleTodo: Function
+})
 </script>
 
 <style scoped>

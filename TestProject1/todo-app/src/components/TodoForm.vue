@@ -6,14 +6,18 @@
 </template>
 
 <script setup>
-import { ref, inject } from 'vue'
+import { ref } from 'vue'
+import { defineProps } from 'vue'
+
+const props = defineProps({
+  addTodo: Function
+})
 
 const newTodo = ref('')
-const addTodo = inject('addTodo')
 
 const handleSubmit = () => {
   if (newTodo.value.trim()) {
-    addTodo(newTodo.value.trim())
+    props.addTodo(newTodo.value.trim())
     newTodo.value = ''
   }
 }
