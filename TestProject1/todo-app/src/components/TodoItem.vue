@@ -3,22 +3,24 @@
     <input
       type="checkbox"
       :checked="todo.completed"
-      @change="toggleTodo(todo.id)"
+      @change="todoStore.toggleTodo(todo.id)"
     >
     <span>{{ todo.text }}</span>
   </div>
 </template>
 
 <script setup>
-import { useStore } from 'vuex'
-import { defineProps } from 'vue'
+import { todoStore } from "@/js/todoStore";
+import { defineProps } from 'vue';
 
 defineProps({
-  todo: Object
-})
+  todo: {
+    type: Object,
+    required: true
+  }
+});
 
-const store = useStore()
-const toggleTodo = (id) => store.dispatch('toggleTodo', id)
+
 </script>
 
 <style scoped>

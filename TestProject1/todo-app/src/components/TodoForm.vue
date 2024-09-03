@@ -6,15 +6,13 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useStore } from 'vuex'
+import { ref } from 'vue';
+import { todoStore } from "@/js/todoStore";
 
-const store = useStore()
-const newTodo = ref('')
-
+const newTodo = ref('');
 const handleSubmit = () => {
   if (newTodo.value.trim()) {
-    store.dispatch('addTodo', newTodo.value.trim())
+    todoStore.addTodo(newTodo.value.trim());
     newTodo.value = ''
   }
 }

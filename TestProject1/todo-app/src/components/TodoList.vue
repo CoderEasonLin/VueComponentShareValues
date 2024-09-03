@@ -1,16 +1,13 @@
 <template>
   <div class="todo-list">
-    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
+    <TodoItem v-for="todo in todoStore.todos" :key="todo.id" :todo="todo" />
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
 import TodoItem from './TodoItem.vue'
+import { todoStore } from "@/js/todoStore"
 
-const store = useStore()
-const todos = computed(() => store.state.todos)
 </script>
 
 <style scoped>

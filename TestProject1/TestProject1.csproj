@@ -15,6 +15,6 @@
 		<PackageReference Include="coverlet.collector" Version="6.0.0" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="todo-app\src\js\" />
+	  <Folder Include="todo-app\src\stores\" />
 	</ItemGroup>
 </Project>
