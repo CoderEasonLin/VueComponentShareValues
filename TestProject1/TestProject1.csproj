@@ -14,4 +14,7 @@
 		<PackageReference Include="Microsoft.Playwright.NUnit" Version="1.27.1" />
 		<PackageReference Include="coverlet.collector" Version="6.0.0" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="todo-app\src\js\" />
+	</ItemGroup>
 </Project>

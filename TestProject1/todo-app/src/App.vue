@@ -1,8 +1,8 @@
 <template>
   <div class="app">
     <h1>待辦事項應用</h1>
-    <TodoForm :add-todo="addTodo" />
-    <TodoList :todos="todos" :toggle-todo="toggleTodo" />
+    <TodoForm />
+    <TodoList />
     <div class="stats">
       <p>已完成: {{ completedTodos.length }}</p>
       <p>未完成: {{ incompleteTodos.length }}</p>
@@ -11,11 +11,13 @@
 </template>
 
 <script setup>
-import { useTodos } from './js/useTodos'
+import { todoStore } from './stores/todoStore'
 import TodoList from './components/TodoList.vue'
 import TodoForm from './components/TodoForm.vue'
+import { storeToRefs } from "pinia";
 
-const { todos, addTodo, toggleTodo, completedTodos, incompleteTodos } = useTodos()
+const store = todoStore()
+const { completedTodos, incompleteTodos } = storeToRefs(store)
 </script>
 
 <style scoped>

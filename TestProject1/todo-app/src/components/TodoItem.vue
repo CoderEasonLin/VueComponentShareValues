@@ -10,12 +10,14 @@
 </template>
 
 <script setup>
+import { todoStore } from '@/stores/todoStore'
 import { defineProps } from 'vue'
 
 defineProps({
-  todo: Object,
-  toggleTodo: Function
+  todo: Object
 })
+
+const { toggleTodo } = todoStore()
 </script>
 
 <style scoped>

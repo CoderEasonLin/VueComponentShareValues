@@ -1,22 +1,16 @@
 <template>
   <div class="todo-list">
-    <TodoItem
-      v-for="todo in todos"
-      :key="todo.id"
-      :todo="todo"
-      :toggle-todo="toggleTodo"
-    />
+    <TodoItem v-for="todo in todos" :key="todo.id" :todo="todo" />
   </div>
 </template>
 
 <script setup>
+import { storeToRefs } from 'pinia'
+import { todoStore } from '@/stores/todoStore'
 import TodoItem from './TodoItem.vue'
-import { defineProps } from 'vue'
 
-defineProps({
-  todos: Array,
-  toggleTodo: Function
-})
+const store = todoStore()
+const { todos } = storeToRefs(store)
 </script>
 
 <style scoped>

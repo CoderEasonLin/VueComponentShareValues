@@ -7,17 +7,14 @@
 
 <script setup>
 import { ref } from 'vue'
-import { defineProps } from 'vue'
+import { todoStore } from '@/stores/todoStore'
 
-const props = defineProps({
-  addTodo: Function
-})
-
+const store = todoStore()
 const newTodo = ref('')
 
 const handleSubmit = () => {
   if (newTodo.value.trim()) {
-    props.addTodo(newTodo.value.trim())
+    store.addTodo(newTodo.value.trim())
     newTodo.value = ''
   }
 }
