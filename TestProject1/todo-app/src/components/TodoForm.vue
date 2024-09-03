@@ -7,14 +7,14 @@
 
 <script setup>
 import { ref } from 'vue'
-import { todoStore } from '@/stores/todoStore'
+import { useStore } from 'vuex'
 
-const store = todoStore()
+const store = useStore()
 const newTodo = ref('')
 
 const handleSubmit = () => {
   if (newTodo.value.trim()) {
-    store.addTodo(newTodo.value.trim())
+    store.dispatch('addTodo', newTodo.value.trim())
     newTodo.value = ''
   }
 }

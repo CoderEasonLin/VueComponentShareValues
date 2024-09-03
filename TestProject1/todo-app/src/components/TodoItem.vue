@@ -10,14 +10,15 @@
 </template>
 
 <script setup>
-import { todoStore } from '@/stores/todoStore'
+import { useStore } from 'vuex'
 import { defineProps } from 'vue'
 
 defineProps({
   todo: Object
 })
 
-const { toggleTodo } = todoStore()
+const store = useStore()
+const toggleTodo = (id) => store.dispatch('toggleTodo', id)
 </script>
 
 <style scoped>

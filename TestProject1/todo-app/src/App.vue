@@ -11,13 +11,14 @@
 </template>
 
 <script setup>
-import { todoStore } from './stores/todoStore'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import TodoList from './components/TodoList.vue'
 import TodoForm from './components/TodoForm.vue'
-import { storeToRefs } from "pinia";
 
-const store = todoStore()
-const { completedTodos, incompleteTodos } = storeToRefs(store)
+const store = useStore()
+const completedTodos = computed(() => store.getters.completedTodos)
+const incompleteTodos = computed(() => store.getters.incompleteTodos)
 </script>
 
 <style scoped>

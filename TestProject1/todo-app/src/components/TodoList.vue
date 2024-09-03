@@ -5,12 +5,12 @@
 </template>
 
 <script setup>
-import { storeToRefs } from 'pinia'
-import { todoStore } from '@/stores/todoStore'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 import TodoItem from './TodoItem.vue'
 
-const store = todoStore()
-const { todos } = storeToRefs(store)
+const store = useStore()
+const todos = computed(() => store.state.todos)
 </script>
 
 <style scoped>
